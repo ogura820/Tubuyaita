@@ -1,0 +1,47 @@
+<!-- Header-->
+<header class="masthead text-center text-white">
+    <div class="masthead-content">
+        <div class="container px-5">
+            <h1 class="masthead-heading mb-0">つぶやいたー</h1>
+            <h2 class="masthead-subheading mb-0">もやもやを口から出そう！</h2>
+            <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Learn More</a>
+        </div>
+    </div>
+    <div class="bg-circle-1 bg-circle"></div>
+    <div class="bg-circle-2 bg-circle"></div>
+    <div class="bg-circle-3 bg-circle"></div>
+    <div class="bg-circle-4 bg-circle"></div>
+</header>
+<!-- Content section 1-->
+<section id="scroll">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6 order-lg-2">
+                <div class="p-5"><img class="img-fluid rounded-circle" src="assets/img/01.jpg" alt="..." /></div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <div class="p-5">
+                    <h2 class="display-4">ここにデータベースから最新のつぶやきを取得して出す！！</h2>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%= form_with(model: @post, local: true ) do |form| %>
+
+    <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2>つぶけませんでした！！！<BR>1-140字でつぶやいてね！</h2>
+    </div>
+<% end %>
+
+<div class="blog_content">
+      <%= form.label :なにをつぶやく？ %><BR>
+      <%= form.text_field :content %>
+</div>
+    <%= form.submit %>
+    <BR>
+    <%= link_to 'つぶやき入力に戻る', posts_path %>
+<% end %>

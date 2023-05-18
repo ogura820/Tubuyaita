@@ -1,0 +1,9 @@
+<h3>以下の内容で、つぶやく。（投稿確認）</h3>
+
+<%= form_with(model: @post, local: true) do |form| %>
+  <%= form.hidden_field :content %>
+  <p>つぶやき:<%= @post.content %></p>
+  <%= form.submit  "つぶやく" %><BR>
+  <%= form.submit "戻る" ,name: 'back' %>
+<% end %>
+
