@@ -9,13 +9,13 @@ aaa<!DOCTYPE html>
                 <div class="container px-5">
                     <h1 class="masthead-heading mb-0">つぶやいたー</h1>
 
-                    <%= form_with(model: @post, local: true ) do |form| %>
-                        <div class="blog_content">
-                              <%= form.label :なにかつぶやこう %><BR>
-                              <%= form.text_field :content %>
+                    <%= form_with(model: Post.new) do |form| %>
+                        <div class="post_content">
+                          <%= form.label :content %>
+                          <%= form.text_field :content %>
                         </div>
-                            <%= form.submit %>
-                        <% end %>
+                        <%= form.submit %>
+                      <% end %>
                         <BR>
                     <h2 class="masthead-subheading mb-0">今までのつぶやきを見よう！(一覧)</h2>
                     <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Learn More</a>
@@ -37,7 +37,7 @@ aaa<!DOCTYPE html>
                     </div>
                     <div class="col-lg-6 order-lg-1">
                         <div class="p-5">
-                            <h2 class="display-4">ここにデータベースから最新のつぶやきを取得して出す！！</h2>
+                            <h2 class="display-4"><%= @posts_latest.content %></h2>
                             
                         </div>
                     </div>
@@ -53,7 +53,7 @@ aaa<!DOCTYPE html>
                     </div>
                     <div class="col-lg-6">
                         <div class="p-5">
-                            <h2 class="display-4">ここに二番目に最新のデータを出す</h2>
+                            <h2 class="display-4"><%= @posts_second_latest.content %></h2>
                             
                         </div>
                     </div>
@@ -69,7 +69,7 @@ aaa<!DOCTYPE html>
                     </div>
                     <div class="col-lg-6 order-lg-1">
                         <div class="p-5">
-                            <h2 class="display-4">ここに三番目に最新のデータを出す</h2>
+                            <h2 class="display-4"><%= @posts_third_latest.content %></h2>
                         </div>
                     </div>
                 </div>

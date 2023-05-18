@@ -4,6 +4,9 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     @posts = Post.all
+    @posts_latest = Post.last
+    @posts_second_latest = Post.second_to_last
+    @posts_third_latest = Post.third_to_last
   end
 
   # GET /posts/1 or /posts/1.json
